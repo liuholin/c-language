@@ -1,0 +1,31 @@
+#include<stdio.h>
+struct num
+	{
+		int n,m;
+		struct num *next;
+	};
+int main()
+{   
+	struct num a[20],*head,*p;
+	int c,i=0;
+	int b[20];
+	for(head=&a;i<19;i++)
+	a[i].next=&a[i+1];
+	a[19].next=NULL;
+	p=head;//将足够大的链表串起来。
+	printf("请输入每个节点的值\n");
+	i=0;
+	while((scanf("%d",&c))!= EOF){
+		b[i]=c;
+	     a[i].m=c;
+		 a[i].n=i+1;//m用于储存节点的值，n用于给节点编号
+		 if(a[i].n%2==1)
+		 printf("%d->",a[i].m);//输出奇数节点编号
+	i++;
+	}
+for(i=0;b[i]!=EOF;i++)
+if(a[i].n%2==0)
+		 printf("%d->",a[i].m);//输出偶数节点编号
+//也可用指针输出
+    return 0;
+}
